@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * A ViewHolder is a class that holds the Views of the itemView.
@@ -12,7 +13,7 @@ import android.widget.TextView;
  * findViewById helps us get a reference as usual.
  */
 
-public class MovieViewHolder extends RecyclerView.ViewHolder {
+public class MovieViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     TextView tvTitle, tvGenre, tvRating, tvYear;
     ImageView ivThumbnail;
 
@@ -24,5 +25,12 @@ public class MovieViewHolder extends RecyclerView.ViewHolder {
         tvRating = (TextView) v.findViewById(R.id.tvRating);
         tvYear = (TextView) v.findViewById(R.id.tvYear);
         ivThumbnail = (ImageView) v.findViewById(R.id.ivThumbnail);
+
+        v.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        Toast.makeText(v.getContext(), "This", Toast.LENGTH_SHORT).show();
     }
 }
